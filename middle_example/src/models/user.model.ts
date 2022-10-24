@@ -15,19 +15,28 @@ export class User extends Entity {
 
   @property({
     type: 'string',
+  })
+  lockSupplier?: string;
+  
+
+  @property({
+    type: 'string',
     required: true,
   })
   username?: string;
 
   @property({
     type: 'string',
-    required: true,
   })
   password?: string;
 
   @property({
     type: 'string',
-    required: true,
+  })
+  contact?: string;
+
+  @property({
+    type: 'string',
     jsonSchema: {
       format: 'email',
     },
@@ -42,13 +51,67 @@ export class User extends Entity {
   tokenRefreshedAt: number;
   @property({
     type: 'number',
-    required: true,
+    default : 2
   })
   role?: number;
 
+  @property({
+    type: 'string',
+    default : ""
+  })
+  telephone?: string;
+
+  @property({
+    type: 'string',
+  })
+  date?: string;
+
+  @property({
+    type: 'number',
+    default: 0
+  })
+  hotelNumber?: number;
+
+  @property({
+    type: 'string',
+  })
+  subDistributor?: string;
+
+  @property({
+    type: 'boolean',
+    default: true
+  })
+  enable?: boolean;
+
+  @property({
+    type: 'string',
+    default: ""
+  })
+  idHotel?: string;
+
+  @property({
+    type: "string",
+  })
+  resetKey?: string
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+    default: []
+  })  
+  myDistributorlist: string[];
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+    default: []
+  })  
+  myHotelslist: string[];
+  
   constructor(data?: Partial<User>) {
     super(data);
   }
+  
 }
 
 export interface UserRelations {

@@ -17,15 +17,20 @@ export class Hotel extends Entity {
   name: string;
 
   @property({
-    type: 'date',
+    type: 'number',
+  })
+  contact: string;
+
+  @property({
+    type: 'string',
   })
   date?: string;
 
   @property({
-    type: 'string',
+    type: 'any',
     required: true,
   })
-  lock_supplier: string;
+  lockSupplier: any;
 
   @property({
     type: 'boolean',
@@ -111,7 +116,6 @@ export class Hotel extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
   account: string;
 
@@ -122,11 +126,44 @@ export class Hotel extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+  })
+  country: string;
+
+  @property({
+    type: 'string',
   })
   Role: string;
 
+  @property({
+    type: 'string',
+  })
+  phone: string;
 
+  @property({
+    type: 'boolean',
+  })
+  enable: boolean;
+
+  @property({
+    type: 'boolean',
+    default: false
+  })
+  isDeleted: boolean;
+
+  @property({
+    type: 'string',
+  })
+  idCreateur: string;
+/*
+  @property({
+    type: 'array',
+    itemType: 'string',
+    default: []
+  })  
+  idCreatorList: string[];
+  
+*/
+  
   constructor(data?: Partial<Hotel>) {
     super(data);
   }
