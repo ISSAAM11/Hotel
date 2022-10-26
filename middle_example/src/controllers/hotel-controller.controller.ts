@@ -235,7 +235,8 @@ export class HotelControllerController {
   async deleteById(@param.path.string('id') id: string,): Promise<void> { // @param.path.string('idUser') idUser: string,
   /*  const user = await this.userRepository.findById(idUser)
     user.hotelNumber != null && user.hotelNumber > 0 ? user.hotelNumber -= 1 : null ;
-    await this.userRepository.replaceById(idUser,user)*/
+    await this.userRepository.replaceById(idUser,user)*/ 
+    
     const hotel = await this.hotelRepository.findById(id);
     let user = await this.userRepository.findById(hotel.idCreateur);
     user.hotelNumber? user.hotelNumber = user.hotelNumber - 1 : null;
