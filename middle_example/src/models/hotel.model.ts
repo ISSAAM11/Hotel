@@ -149,7 +149,7 @@ export class Hotel extends Entity {
     default: false
   })
   isDeleted: boolean;
-
+ 
   @property({
     type: 'string',
   })
